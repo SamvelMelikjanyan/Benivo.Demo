@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
-namespace Benivo.Demo.ApiModels.Infrastructure
+namespace Benivo.Demo.Api.Infrastructure
 {
     public class ResponseModel<TData> : OkResult
     {
