@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Benivo.Demo.BLL.Interfaces\Benivo.Demo.BLL.Interfaces.csproj" PrivateAssets="All" />
+    <ProjectReference Include="..\Benivo.Demo.BLL\Benivo.Demo.BLL.csproj" PrivateAssets="All" />
+    <ProjectReference Include="..\Benivo.Demo.Common\Benivo.Demo.Common.csproj" PrivateAssets="All" />
+    <ProjectReference Include="..\Benivo.Demo.DAL\Benivo.Demo.DAL.csproj" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>

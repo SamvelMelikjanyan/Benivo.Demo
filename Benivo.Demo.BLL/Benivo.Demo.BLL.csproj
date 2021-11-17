@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Benivo.Demo.BLL.Interfaces\Benivo.Demo.BLL.Interfaces.csproj" PrivateAssets="All" />
+    <ProjectReference Include="..\Benivo.Demo.DAL\Benivo.Demo.DAL.csproj" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+</Project>
