@@ -17,6 +17,8 @@ namespace Benivo.Demo.Api
         {
             services.AddControllers();
             services.ConfigureDI(_configuration);
+            services.ConfigureAuthentication(_configuration);
+            services.ConfigureAuthorization();
             services.ConfigureApiVersioning();
             services.ConfigureFluentValidation();
             services.ConfigureSwagger();
@@ -34,6 +36,11 @@ namespace Benivo.Demo.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseMiddleware<UnauthorizedResponseHandleMiddleware>();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

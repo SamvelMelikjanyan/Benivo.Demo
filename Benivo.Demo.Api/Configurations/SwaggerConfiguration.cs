@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using Benivo.Demo.Common.Constants;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
@@ -40,6 +42,30 @@ namespace Benivo.Demo.Api.Configurations
                         .SelectMany(attr => attr.Versions);
 
                     return versions.Any(v => $"v{v}" == docName);
+                });
+
+                options.AddSecurityDefinition(Jwt.Bearer, new OpenApiSecurityScheme()
+                {
+                    Description = "Authorization header using the bearer scheme",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header
+                });
+
+                options.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = Jwt.Bearer
+                            },
+                            Scheme = Jwt.Bearer,
+                            In = ParameterLocation.Header
+                        },
+                        new List<string>()
+                    }
                 });
             });
         }

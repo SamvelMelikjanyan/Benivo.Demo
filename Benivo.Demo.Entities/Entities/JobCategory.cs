@@ -8,6 +8,7 @@ namespace Benivo.Demo.Entities.Entities
         public JobCategory()
         {
             SubCategories = new HashSet<JobCategory>();
+            JobAnnouncements = new HashSet<JobAnnouncement>();
         }
 
         public short Id { get; set; }
@@ -19,5 +20,7 @@ namespace Benivo.Demo.Entities.Entities
         public virtual JobCategory Parent { get; set; }
 
         public virtual ICollection<JobCategory> SubCategories { get; set; }
+
+        public virtual ICollection<JobAnnouncement> JobAnnouncements { get; set; }
     }
 }

@@ -127,6 +127,41 @@ namespace Benivo.Demo.DAL.Migrations
                     b.ToTable("Countries");
                 });
 
+            modelBuilder.Entity("Benivo.Demo.Entities.Entities.EmploymentType", b =>
+                {
+                    b.Property<byte>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("tinyint")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreationDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("SYSUTCDATETIME()");
+
+                    b.Property<DateTime>("LastUpdateTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("SYSUTCDATETIME()");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.HasKey("Id")
+                        .HasName("PK_EmployementTypes")
+                        .IsClustered();
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasDatabaseName("UK_EmployementTypes_Name");
+
+                    b.ToTable("EmployementTypes");
+                });
+
             modelBuilder.Entity("Benivo.Demo.Entities.Entities.JobAnnouncement", b =>
                 {
                     b.Property<long>("Id")
@@ -140,9 +175,6 @@ namespace Benivo.Demo.DAL.Migrations
                     b.Property<long>("CompanyId")
                         .HasColumnType("bigint");
 
-                    b.Property<short>("CountryId")
-                        .HasColumnType("smallint");
-
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
@@ -152,11 +184,14 @@ namespace Benivo.Demo.DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte>("EmploymentTypeId")
+                        .HasColumnType("tinyint");
+
                     b.Property<DateTime?>("ExpirationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<byte>("JobTypeId")
-                        .HasColumnType("tinyint");
+                    b.Property<short>("JobCategoryId")
+                        .HasColumnType("smallint");
 
                     b.Property<DateTime>("LastUpdateTime")
                         .ValueGeneratedOnAdd()
@@ -176,9 +211,9 @@ namespace Benivo.Demo.DAL.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.HasIndex("CountryId");
+                    b.HasIndex("EmploymentTypeId");
 
-                    b.HasIndex("JobTypeId");
+                    b.HasIndex("JobCategoryId");
 
                     b.ToTable("JobAnnouncements");
                 });
@@ -221,35 +256,93 @@ namespace Benivo.Demo.DAL.Migrations
                     b.ToTable("JobCategories");
                 });
 
-            modelBuilder.Entity("Benivo.Demo.Entities.Entities.JobType", b =>
+            modelBuilder.Entity("Benivo.Demo.Entities.Entities.User", b =>
                 {
-                    b.Property<byte>("Id")
-                        .HasColumnType("tinyint");
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("CreationDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("SYSUTCDATETIME()");
 
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<DateTime>("LastUpdateTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("SYSUTCDATETIME()");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Username")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id")
-                        .HasName("PK_JobTypes")
+                        .HasName("PK_Users_Id")
                         .IsClustered();
 
-                    b.HasIndex("Name")
+                    b.HasIndex("Email")
                         .IsUnique()
-                        .HasDatabaseName("UK_JobTypes_Name");
+                        .HasDatabaseName("UK_Users_Email");
 
-                    b.ToTable("JobTypes");
+                    b.HasIndex("Username")
+                        .IsUnique()
+                        .HasDatabaseName("UK_Users_Username");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Benivo.Demo.Entities.Entities.UserJobAnnouncement", b =>
+                {
+                    b.Property<long>("UserId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("JobAnnouncementId")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("CreationDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("SYSUTCDATETIME()");
+
+                    b.Property<bool>("IsApplied")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<bool>("IsBookmarked")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.Property<DateTime>("LastUpdateTime")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("SYSUTCDATETIME()");
+
+                    b.HasKey("UserId", "JobAnnouncementId")
+                        .HasName("PK_UserJobAnnouncements_UserId_JobAnnouncementId")
+                        .IsClustered();
+
+                    b.HasIndex("JobAnnouncementId");
+
+                    b.ToTable("UserJobAnnouncements");
                 });
 
             modelBuilder.Entity("Benivo.Demo.Entities.Entities.City", b =>
@@ -280,17 +373,17 @@ namespace Benivo.Demo.DAL.Migrations
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Benivo.Demo.Entities.Entities.Country", "Country")
+                    b.HasOne("Benivo.Demo.Entities.Entities.EmploymentType", "EmploymentType")
                         .WithMany("JobAnnouncements")
-                        .HasForeignKey("CountryId")
-                        .HasConstraintName("FK_JobAnnouncements_Countries_CountryId")
+                        .HasForeignKey("EmploymentTypeId")
+                        .HasConstraintName("FK_JobAnnouncements_EmployementTypes_EmployementTypeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Benivo.Demo.Entities.Entities.JobType", "JobType")
+                    b.HasOne("Benivo.Demo.Entities.Entities.JobCategory", "JobCategory")
                         .WithMany("JobAnnouncements")
-                        .HasForeignKey("JobTypeId")
-                        .HasConstraintName("FK_JobAnnouncements_JobTypes_JobTypeId")
+                        .HasForeignKey("JobCategoryId")
+                        .HasConstraintName("FK_JobAnnouncements_JobCategories_JobCategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -298,9 +391,9 @@ namespace Benivo.Demo.DAL.Migrations
 
                     b.Navigation("Company");
 
-                    b.Navigation("Country");
+                    b.Navigation("EmploymentType");
 
-                    b.Navigation("JobType");
+                    b.Navigation("JobCategory");
                 });
 
             modelBuilder.Entity("Benivo.Demo.Entities.Entities.JobCategory", b =>
@@ -312,6 +405,27 @@ namespace Benivo.Demo.DAL.Migrations
                         .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Parent");
+                });
+
+            modelBuilder.Entity("Benivo.Demo.Entities.Entities.UserJobAnnouncement", b =>
+                {
+                    b.HasOne("Benivo.Demo.Entities.Entities.JobAnnouncement", "JobAnnouncement")
+                        .WithMany("UserJobAnnouncements")
+                        .HasForeignKey("JobAnnouncementId")
+                        .HasConstraintName("FK_UserJobAnnouncements_JobAnnouncements_JobAnnouncementId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Benivo.Demo.Entities.Entities.User", "User")
+                        .WithMany("UserJobAnnouncements")
+                        .HasForeignKey("UserId")
+                        .HasConstraintName("FK_UserJobAnnouncements_User_UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("JobAnnouncement");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Benivo.Demo.Entities.Entities.City", b =>
@@ -327,18 +441,28 @@ namespace Benivo.Demo.DAL.Migrations
             modelBuilder.Entity("Benivo.Demo.Entities.Entities.Country", b =>
                 {
                     b.Navigation("Cities");
+                });
 
+            modelBuilder.Entity("Benivo.Demo.Entities.Entities.EmploymentType", b =>
+                {
                     b.Navigation("JobAnnouncements");
+                });
+
+            modelBuilder.Entity("Benivo.Demo.Entities.Entities.JobAnnouncement", b =>
+                {
+                    b.Navigation("UserJobAnnouncements");
                 });
 
             modelBuilder.Entity("Benivo.Demo.Entities.Entities.JobCategory", b =>
                 {
+                    b.Navigation("JobAnnouncements");
+
                     b.Navigation("SubCategories");
                 });
 
-            modelBuilder.Entity("Benivo.Demo.Entities.Entities.JobType", b =>
+            modelBuilder.Entity("Benivo.Demo.Entities.Entities.User", b =>
                 {
-                    b.Navigation("JobAnnouncements");
+                    b.Navigation("UserJobAnnouncements");
                 });
 #pragma warning restore 612, 618
         }

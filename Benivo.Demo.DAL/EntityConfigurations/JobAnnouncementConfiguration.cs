@@ -17,16 +17,10 @@ namespace Benivo.Demo.DAL.EntityConfigurations
                 .IsClustered(true)
                 .HasName("PK_JobAnnouncements_Id");
 
-            builder.HasOne(ja => ja.JobType)
+            builder.HasOne(ja => ja.EmploymentType)
                 .WithMany(jt => jt.JobAnnouncements)
-                .HasForeignKey(ja => ja.JobTypeId)
-                .HasConstraintName("FK_JobAnnouncements_JobTypes_JobTypeId")
-                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasOne(ja => ja.Country)
-                .WithMany(jt => jt.JobAnnouncements)
-                .HasForeignKey(ja => ja.CountryId)
-                .HasConstraintName("FK_JobAnnouncements_Countries_CountryId")
+                .HasForeignKey(ja => ja.EmploymentTypeId)
+                .HasConstraintName("FK_JobAnnouncements_EmployementTypes_EmployementTypeId")
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(ja => ja.City)
@@ -39,6 +33,12 @@ namespace Benivo.Demo.DAL.EntityConfigurations
                 .WithMany(jt => jt.JobAnnouncements)
                 .HasForeignKey(ja => ja.CompanyId)
                 .HasConstraintName("FK_JobAnnouncements_Company_CompanyId")
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(ja => ja.JobCategory)
+                .WithMany(jt => jt.JobAnnouncements)
+                .HasForeignKey(ja => ja.JobCategoryId)
+                .HasConstraintName("FK_JobAnnouncements_JobCategories_JobCategoryId")
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.Property(ja => ja.Title)

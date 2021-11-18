@@ -1,12 +1,8 @@
 ﻿using Benivo.Demo.Api.Infrastructure;
-using Benivo.Demo.ApiModels.Infrastructure;
 using Benivo.Demo.Common.Extensions;
 using Benivo.Demo.Common.Models;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
 using System.Threading.Tasks;
 

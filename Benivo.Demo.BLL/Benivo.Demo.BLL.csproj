@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -6,11 +6,18 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Benivo.Demo.BLL.Interfaces\Benivo.Demo.BLL.Interfaces.csproj" PrivateAssets="All" />
+    <ProjectReference Include="..\Benivo.Demo.Cache\Benivo.Demo.Cache.csproj" PrivateAssets="All" />
+    <ProjectReference Include="..\Benivo.Demo.Common\Benivo.Demo.Common.csproj" PrivateAssets="All" />
     <ProjectReference Include="..\Benivo.Demo.DAL\Benivo.Demo.DAL.csproj" PrivateAssets="All" />
+    <ProjectReference Include="..\Benivo.Demo.Entities\Benivo.Demo.Entities.csproj" PrivateAssets="All" />
+    <ProjectReference Include="..\Benivo.Demo.Mapper\Benivo.Demo.Mapper.csproj" PrivateAssets="All" />
+    <ProjectReference Include="..\Benivo.Demo.Models\Benivo.Demo.Models.csproj" PrivateAssets="All" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <PackageReference Include="IdentityModel" Version="5.2.0" />
+    <PackageReference Include="Z.EntityFramework.Extensions.EFCore" Version="5.13.1" />
+    <PackageReference Include="Z.EntityFramework.Plus.EFCore" Version="5.13.1" />
   </ItemGroup>
 
 </Project>

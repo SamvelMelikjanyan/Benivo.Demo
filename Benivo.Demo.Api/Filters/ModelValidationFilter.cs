@@ -1,10 +1,9 @@
-﻿using Benivo.Demo.ApiModels.Infrastructure;
+﻿using Benivo.Demo.Api.Infrastructure;
 using Benivo.Demo.Common.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 
 namespace Benivo.Demo.Api.Filters
@@ -32,7 +31,7 @@ namespace Benivo.Demo.Api.Filters
 
             return new()
             {
-                Message = HttpStatusCode.BadRequest.ToString(),
+                Message = "Bad request",
                 Errors = errors
             };
         }

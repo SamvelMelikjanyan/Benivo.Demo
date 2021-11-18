@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\Benivo.Demo.Common\Benivo.Demo.Common.csproj" PrivateAssets="All" />
+    <ProjectReference Include="..\Benivo.Demo.Models\Benivo.Demo.Models.csproj" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>

@@ -6,7 +6,7 @@ namespace Benivo.Demo.Common.Helpers
 {
     public class ExceptionHelper
     {
-        public static FaultException<ErrorModel> ThrowFaultException(
+        public static FaultException<ErrorModel> CreateFaultException(
             string message,
             int statuCode,
             Dictionary<string, string[]> errors = null)

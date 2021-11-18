@@ -7,10 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benivo.Demo.Api", "Benivo.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benivo.Demo.Entities", "Benivo.Demo.Entities\Benivo.Demo.Entities.csproj", "{9337C9E5-788F-4BF5-9C42-0A3825AF56C3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benivo.Demo.DTOs", "Benivo.Demo.DTOs\Benivo.Demo.DTOs.csproj", "{D12568C5-0FC9-4A20-BFAF-F0D98718B415}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benivo.Demo.ApiModels", "Benivo.Demo.ApiModels\Benivo.Demo.ApiModels.csproj", "{61689725-4E57-4380-BE95-729A6586F2CE}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benivo.Demo.Common", "Benivo.Demo.Common\Benivo.Demo.Common.csproj", "{6EC7DBB1-9234-4FCA-8A18-CD332F377E4D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benivo.Demo.Mapper", "Benivo.Demo.Mapper\Benivo.Demo.Mapper.csproj", "{68434AD3-6996-45E3-AA36-3CE96BD15550}"
@@ -21,7 +17,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benivo.Demo.BLL", "Benivo.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benivo.Demo.BLL.Interfaces", "Benivo.Demo.BLL.Interfaces\Benivo.Demo.BLL.Interfaces.csproj", "{BA519B5F-5731-4380-B8BB-6ECB1AD6A60B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benivo.Demo.IoC", "Benivo.Demo.IoC\Benivo.Demo.IoC.csproj", "{8082731B-D751-42C5-85C1-DCC73742AD9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benivo.Demo.IoC", "Benivo.Demo.IoC\Benivo.Demo.IoC.csproj", "{8082731B-D751-42C5-85C1-DCC73742AD9A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benivo.Demo.Models", "Benivo.Demo.Models\Benivo.Demo.Models.csproj", "{B35FFC71-2D1B-41F8-91FA-5AF561B4510A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Benivo.Demo.IdentityServer4", "Benivo.Demo.IdentityServer4\Benivo.Demo.IdentityServer4.csproj", "{905B8EE8-B0FB-4A52-87B2-DB25826D7126}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benivo.Demo.Cache", "Benivo.Demo.Cache\Benivo.Demo.Cache.csproj", "{C7375AFD-721F-4EB6-8F34-32E15CC70264}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,14 +39,6 @@ Global
 		{9337C9E5-788F-4BF5-9C42-0A3825AF56C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9337C9E5-788F-4BF5-9C42-0A3825AF56C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9337C9E5-788F-4BF5-9C42-0A3825AF56C3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D12568C5-0FC9-4A20-BFAF-F0D98718B415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D12568C5-0FC9-4A20-BFAF-F0D98718B415}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D12568C5-0FC9-4A20-BFAF-F0D98718B415}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D12568C5-0FC9-4A20-BFAF-F0D98718B415}.Release|Any CPU.Build.0 = Release|Any CPU
-		{61689725-4E57-4380-BE95-729A6586F2CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{61689725-4E57-4380-BE95-729A6586F2CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{61689725-4E57-4380-BE95-729A6586F2CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{61689725-4E57-4380-BE95-729A6586F2CE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6EC7DBB1-9234-4FCA-8A18-CD332F377E4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6EC7DBB1-9234-4FCA-8A18-CD332F377E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EC7DBB1-9234-4FCA-8A18-CD332F377E4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,6 +63,18 @@ Global
 		{8082731B-D751-42C5-85C1-DCC73742AD9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8082731B-D751-42C5-85C1-DCC73742AD9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8082731B-D751-42C5-85C1-DCC73742AD9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B35FFC71-2D1B-41F8-91FA-5AF561B4510A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B35FFC71-2D1B-41F8-91FA-5AF561B4510A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B35FFC71-2D1B-41F8-91FA-5AF561B4510A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B35FFC71-2D1B-41F8-91FA-5AF561B4510A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{905B8EE8-B0FB-4A52-87B2-DB25826D7126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{905B8EE8-B0FB-4A52-87B2-DB25826D7126}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{905B8EE8-B0FB-4A52-87B2-DB25826D7126}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{905B8EE8-B0FB-4A52-87B2-DB25826D7126}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7375AFD-721F-4EB6-8F34-32E15CC70264}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7375AFD-721F-4EB6-8F34-32E15CC70264}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7375AFD-721F-4EB6-8F34-32E15CC70264}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7375AFD-721F-4EB6-8F34-32E15CC70264}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

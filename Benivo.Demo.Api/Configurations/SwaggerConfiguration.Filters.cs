@@ -21,7 +21,7 @@ namespace Benivo.Demo.Api.Configurations
             OpenApiPaths openApiPaths = new();
 
             foreach (var path in swaggerDoc.Paths)
-                openApiPaths.Add(path.Key.Replace($"v{ApiVersioning.Version}", swaggerDoc.Info.Version), path.Value);
+                openApiPaths.Add(path.Key.Replace("v{version}", swaggerDoc.Info.Version), path.Value);
 
             swaggerDoc.Paths = openApiPaths;
         }

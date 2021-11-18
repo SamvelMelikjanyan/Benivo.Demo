@@ -12,10 +12,13 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Z.EntityFramework.Extensions.EFCore" Version="5.13.1" />
+    <PackageReference Include="Z.EntityFramework.Plus.EFCore" Version="5.13.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Benivo.Demo.Entities\Benivo.Demo.Entities.csproj" PrivateAssets="All" />
+    <ProjectReference Include="..\Benivo.Demo.Models\Benivo.Demo.Models.csproj" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
