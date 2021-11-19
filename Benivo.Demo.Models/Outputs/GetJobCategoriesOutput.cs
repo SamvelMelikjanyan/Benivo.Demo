@@ -6,6 +6,8 @@ namespace Benivo.Demo.Models.Outputs
     {
         public short Id { get; set; }
 
+        public string Name { get; set; }
+
         public short? ParentId { get; set; }
 
         public bool HasChild { get; set; }
