@@ -20,7 +20,7 @@ namespace Benivo.Demo.BLL.Services
         public async Task<List<GetJobCategoriesOutput>> GetAllAsync(short? parentId)
         {
             var jobCategories = await CacheHelper.GetOrSetAsync(CacheKeys.JobCategories,
-                async () => await DbContext.JobCategories.ToListAsync(),
+                async () => await DbContext.JobCategories.AsNoTracking().ToListAsync(),
                 TimeSpan.FromHours(1));
 
             var filteredJobCategories = jobCategories;
@@ -33,6 +33,7 @@ namespace Benivo.Demo.BLL.Services
             return filteredJobCategories.Select(jc => new GetJobCategoriesOutput
             {
                 Id = jc.Id,
+                Name = jc.Name,
                 ParentId = jc.ParentId,
                 HasChild = jobCategories.Any(sub => sub.ParentId == jc.Id)
             }).ToList();
