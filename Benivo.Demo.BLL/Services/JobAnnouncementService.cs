@@ -24,7 +24,7 @@ namespace Benivo.Demo.BLL.Services
 
         public async Task<GetJobAnnouncementByIdOutput> GetByIdAsync(long id, long? userId)
         {
-            var result = await DbContext.JobAnnouncements.Select(ja => new GetJobAnnouncementByIdOutput
+            var result = await DbContext.JobAnnouncements.AsNoTracking().Select(ja => new GetJobAnnouncementByIdOutput
             {
                 Id = ja.Id,
                 Title = ja.Title,

@@ -1,6 +1,7 @@
 ﻿using Benivo.Demo.DAL.Infrastructure;
 using Benivo.Demo.Models.Inputs;
 using Benivo.Demo.Models.Outputs;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using Z.EntityFramework.Plus;
@@ -16,7 +17,7 @@ namespace Benivo.Demo.DAL.Queries
 
         public override QueryBinderResult<SearchJobAnnouncementOutput> Bind(SearchJobAnnouncementInput input)
         { 
-            var query = DbContext.JobAnnouncements
+            var query = DbContext.JobAnnouncements.AsNoTracking()
                 .Where(ja => (!ja.ExpirationDate.HasValue || ja.ExpirationDate >= DateTime.UtcNow)
                           && (string.IsNullOrWhiteSpace(input.Title) || ja.Title.Contains(input.Title))
                           && (!input.JobCategoryId.HasValue || ja.JobCategoryId == input.JobCategoryId)

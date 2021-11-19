@@ -19,7 +19,7 @@ namespace Benivo.Demo.BLL.Services
 
         public async Task<List<GetLocationOutput>> GetLocationsAsync()
             => await CacheHelper.GetOrSetAsync(CacheKeys.Locations, async () =>
-            await DbContext.Cities.Select(c => new GetLocationOutput
+            await DbContext.Cities.AsNoTracking().Select(c => new GetLocationOutput
             {
                 Id = c.Id,
                 City = c.Name,
