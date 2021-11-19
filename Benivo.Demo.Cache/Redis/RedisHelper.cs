@@ -26,6 +26,11 @@ namespace Benivo.Demo.Cache
         private static DateTimeOffset _firstError;
         private static DateTimeOffset _previousError;
 
+        private const string _redis = "Redis";
+        private const string _redisHostAndPort = "RedisHostAndPort";
+        private const string _host = "Host";
+        private const string _port = "Port";
+
         static RedisHelper()
         {
             _connectionString = GetConnectionString();
@@ -45,7 +50,7 @@ namespace Benivo.Demo.Cache
              .AddJsonFile("appsettings.json")
              .Build();
 
-            return Configuration.GetConnectionString("Redis");
+            return Configuration.GetConnectionString(_redis);
         }
 
         private static (string Host, int Port) GetHostAndPort()
@@ -54,10 +59,10 @@ namespace Benivo.Demo.Cache
              .AddJsonFile("appsettings.json")
              .Build();
 
-            var redisConfigurations = Configuration.GetSection("RedisHostAndPort");
+            var redisConfigurations = Configuration.GetSection(_redisHostAndPort);
 
-            return new(redisConfigurations.GetValue<string>("Host"),
-                redisConfigurations.GetValue<int>("Port"));
+            return new(redisConfigurations.GetValue<string>(_host),
+                redisConfigurations.GetValue<int>(_port));
         }
 
         /// <summary>
