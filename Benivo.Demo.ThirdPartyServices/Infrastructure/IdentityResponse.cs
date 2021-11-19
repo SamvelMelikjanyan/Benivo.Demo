@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Benivo.Demo.Models.Infrastructure
+namespace Benivo.Demo.ThirdPartyServices.Infrastructure
 {
     public class IdentityResponse<TData>
     {

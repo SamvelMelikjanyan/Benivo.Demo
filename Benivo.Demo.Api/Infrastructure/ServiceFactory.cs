@@ -1,7 +1,7 @@
-﻿using Benivo.Demo.BLL.Interfaces._3rdPartyServices;
-using System;
+﻿using System;
 using Microsoft.Extensions.DependencyInjection;
 using Benivo.Demo.BLL.Interfaces.Services;
+using Benivo.Demo.ThirdPartyServices.Services;
 
 namespace Benivo.Demo.Api.Infrastructure
 {
@@ -11,7 +11,7 @@ namespace Benivo.Demo.Api.Infrastructure
 
         public ServiceFactory(IServiceProvider serviceProvider) => _serviceProvider = serviceProvider;
 
-        public IBenivoIdentityService BenivoIdentityService => _serviceProvider.GetService<IBenivoIdentityService>();
+        public BenivoIdentityService BenivoIdentityService => _serviceProvider.GetService<BenivoIdentityService>();
     
         public IUserService UserService => _serviceProvider.GetService<IUserService>();
 

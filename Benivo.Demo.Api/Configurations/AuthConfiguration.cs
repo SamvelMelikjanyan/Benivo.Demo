@@ -1,4 +1,5 @@
-﻿using Benivo.Demo.Common.Constants;
+﻿using Benivo.Demo.Api.Constants;
+using Benivo.Demo.Common.Constants;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;

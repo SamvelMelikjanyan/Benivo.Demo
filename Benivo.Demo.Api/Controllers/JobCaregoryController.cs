@@ -1,5 +1,5 @@
-﻿using Benivo.Demo.Api.Infrastructure;
-using Benivo.Demo.Common.Constants;
+﻿using Benivo.Demo.Api.Constants;
+using Benivo.Demo.Api.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 

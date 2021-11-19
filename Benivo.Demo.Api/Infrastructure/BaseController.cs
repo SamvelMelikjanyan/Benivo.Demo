@@ -1,4 +1,4 @@
-﻿using Benivo.Demo.Common.Constants;
+﻿using Benivo.Demo.Api.Constants;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using System.Linq;

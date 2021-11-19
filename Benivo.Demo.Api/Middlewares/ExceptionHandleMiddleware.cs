@@ -1,7 +1,8 @@
-﻿using Benivo.Demo.Api.Infrastructure;
-using Benivo.Demo.Common.Extensions;
+﻿using Benivo.Demo.Api.Extensions;
+using Benivo.Demo.Api.Infrastructure;
 using Benivo.Demo.Common.Models;
 using Microsoft.AspNetCore.Http;
+using Serilog;
 using System;
 using System.ServiceModel;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace Benivo.Demo.Api.Middlewares
             }
             catch (Exception ex)
             {
+                Log.Error(ex, ex.Message);
                 var response = BindErrorResponse(ex, out int statusCode);
                 await httpContext.Response.WriteResponseAsync(response, statusCode);
             }

@@ -1,4 +1,4 @@
-﻿using Benivo.Demo.Common.Constants;
+﻿using Benivo.Demo.Api.Constants;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Linq;

@@ -1,4 +1,4 @@
-﻿namespace Benivo.Demo.Common.Constants
+﻿namespace Benivo.Demo.Api.Constants
 {
     public static class ApiVersioning
     {

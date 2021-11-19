@@ -1,5 +1,5 @@
-﻿using Benivo.Demo.Api.Infrastructure;
-using Benivo.Demo.Common.Extensions;
+﻿using Benivo.Demo.Api.Extensions;
+using Benivo.Demo.Api.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;

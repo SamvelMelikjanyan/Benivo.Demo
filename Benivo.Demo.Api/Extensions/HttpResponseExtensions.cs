@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System.Threading.Tasks;
 
-namespace Benivo.Demo.Common.Extensions
+namespace Benivo.Demo.Api.Extensions
 {
     public static class HttpResponseExtensions
     {

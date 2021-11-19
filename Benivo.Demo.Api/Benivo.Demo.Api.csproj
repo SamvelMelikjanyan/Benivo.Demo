@@ -28,6 +28,7 @@
     <ProjectReference Include="..\Benivo.Demo.IoC\Benivo.Demo.IoC.csproj" />
     <ProjectReference Include="..\Benivo.Demo.Mapper\Benivo.Demo.Mapper.csproj" />
     <ProjectReference Include="..\Benivo.Demo.Models\Benivo.Demo.Models.csproj" />
+    <ProjectReference Include="..\Benivo.Demo.ThirdPartyServices\Benivo.Demo.ThirdPartyServices.csproj" />
   </ItemGroup>
 
 </Project>
