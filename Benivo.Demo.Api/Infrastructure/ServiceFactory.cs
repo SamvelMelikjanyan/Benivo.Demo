@@ -5,7 +5,7 @@ using Benivo.Demo.ThirdPartyServices.Services;
 
 namespace Benivo.Demo.Api.Infrastructure
 {
-    public class ServiceFactory
+    public class ServiceFactory 
     {
         private readonly IServiceProvider _serviceProvider;
 
@@ -18,5 +18,9 @@ namespace Benivo.Demo.Api.Infrastructure
         public IJobAnnouncementService JobAnnouncementService => _serviceProvider.GetService<IJobAnnouncementService>();
     
         public IJobCategoryService JobCategoryService => _serviceProvider.GetService<IJobCategoryService>();
+    
+        public IEmploymentTypeService EmploymentTypeService => _serviceProvider.GetService<IEmploymentTypeService>();
+    
+        public ICityService CityService => _serviceProvider.GetService<ICityService>();
     }
 }
