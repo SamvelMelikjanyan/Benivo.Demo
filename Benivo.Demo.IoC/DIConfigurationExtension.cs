@@ -72,6 +72,8 @@ namespace Benivo.Demo.IoC
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IJobAnnouncementService, JobAnnouncementService>();
             services.AddScoped<IJobCategoryService, JobCategoryService>();
+            services.AddScoped<IEmploymentTypeService, EmploymentTypeService>();
+            services.AddScoped<ICityService, CityService>();
 
             //third party services
             services.AddScoped<BenivoIdentityService>();
